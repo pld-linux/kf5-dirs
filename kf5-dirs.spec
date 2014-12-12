@@ -1,0 +1,116 @@
+%define		__spec_clean_body	%{nil}
+%define		_enable_debug_packages	0
+Summary:	KDE Frameworks - common directories
+Name:		kf5-dirs
+Version:	0.1
+Release:	0.1
+License:	LGPL
+Group:		X11/Libraries
+URL:		http://www.kde.org/
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+KDE Frameworks - common directories.
+
+%prep
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d \
+	$RPM_BUILD_ROOT%{_includedir}/KF5 \
+	$RPM_BUILD_ROOT%{_datadir}/{kf5/kcookiejar,kservicetypes5,knotifications5,kservices5/{kded,searchproviders},kxmlgui5} \
+	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
+	$RPM_BUILD_ROOT%{_libdir}/kf5 \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,private/kquickcontrols,runnermodel} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
+	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,ro,ru,sl,sr,sv,tr,uk,wa,xh} \
+	$RPM_BUILD_ROOT%{_sysconfdir}/xdg/ui
+
+
+%clean
+cd $RPM_BUILD_ROOT
+check_filesystem_dirs() {
+	RPMFILE=%{name}-%{version}-%{release}.%{_target_cpu}.rpm
+	TMPFILE=$(mktemp)
+	# NOTE:	we must exclude from check all existing dirs belonging to FHS
+	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt5|usr/lib64/qt5|usr/lib/qt5/imports|usr/lib64/qt5/imports|usr/lib/qt5/imports/org|usr/lib64/qt5/imports/org|usr/lib/qt5/plugins|usr/lib64/qt5/plugins|usr/lib/qt5/qml|usr/lib64/qt5/qml|etc|etc/xdg)$' > $TMPFILE
+
+	# find finds also '.', so use option -B for diff
+	if rpm -qpl %{_rpmdir}/$RPMFILE | grep -v '^/$' | LC_ALL=C sort | diff -uB $TMPFILE -; then
+		rm -rf $RPM_BUILD_ROOT
+	else
+		echo -e "\nNot so good, some directories are not included in package\n"
+		exit 1
+	fi
+	rm -f $TMPFILE
+}
+check_filesystem_dirs
+
+%files
+%defattr(644,root,root,755)
+%dir %{_includedir}/KF5
+%dir %{_datadir}/emoticons
+%dir %{_datadir}/emoticons/Glass
+%dir %{_datadir}/kf5
+%dir %{_datadir}/kf5/kcookiejar
+%dir %{_datadir}/kservicetypes5
+%dir %{_datadir}/kservices5
+%dir %{_datadir}/kservices5/kded
+%dir %{_datadir}/kservices5/searchproviders
+%dir %{_datadir}/knotifications5
+%dir %{_datadir}/kxmlgui5
+%dir %{_libdir}/kf5
+%dir %{_libdir}/qt5/plugins/kf5
+%dir %{_libdir}/qt5/plugins/kf5/kded
+%dir %{_libdir}/qt5/plugins/kf5/parts
+%dir %{_libdir}/qt5/plugins/kf5/urifilters
+%dir %{_libdir}/qt5/qml/org
+%dir %{_libdir}/qt5/qml/org/kde
+%dir %{_libdir}/qt5/qml/org/kde/kio
+%dir %{_libdir}/qt5/qml/org/kde/draganddrop
+%dir %{_libdir}/qt5/qml/org/kde/kcoreaddons
+%dir %{_libdir}/qt5/qml/org/kde/kquickcontrols
+%dir %{_libdir}/qt5/qml/org/kde/kquickcontrolsaddons
+%dir %{_libdir}/qt5/qml/org/kde/private
+%dir %{_libdir}/qt5/qml/org/kde/private/kquickcontrols
+%dir %{_libdir}/qt5/qml/org/kde/runnermodel
+%dir %{_libdir}/qt5/platformqml
+%dir %{_libdir}/qt5/platformqml/touch
+%dir %{_libdir}/qt5/platformqml/touch/org
+%dir %{_libdir}/qt5/platformqml/touch/org/kde
+%dir %{_libdir}/qt5/platformqml/touch/org/kde/plasma
+%dir %{_sysconfdir}/xdg/ui
+%dir %{_docdir}/HTML/
+%lang(af) %dir %{_docdir}/HTML/af
+%lang(ca) %dir %{_docdir}/HTML/ca
+%lang(cs) %dir %{_docdir}/HTML/cs
+%lang(da) %dir %{_docdir}/HTML/da
+%lang(de) %dir %{_docdir}/HTML/de
+%lang(el) %dir %{_docdir}/HTML/el
+%lang(en) %dir %{_docdir}/HTML/en
+%lang(eo) %dir %{_docdir}/HTML/eo
+%lang(es) %dir %{_docdir}/HTML/es
+%lang(et) %dir %{_docdir}/HTML/et
+%lang(fr) %dir %{_docdir}/HTML/fr
+%lang(gl) %dir %{_docdir}/HTML/gl
+%lang(he) %dir %{_docdir}/HTML/he
+%lang(hu) %dir %{_docdir}/HTML/hu
+%lang(it) %dir %{_docdir}/HTML/it
+%lang(ja) %dir %{_docdir}/HTML/ja
+%lang(ko) %dir %{_docdir}/HTML/ko
+%lang(lt) %dir %{_docdir}/HTML/lt
+%lang(nds) %dir %{_docdir}/HTML/nds
+%lang(nl) %dir %{_docdir}/HTML/nl
+%lang(nn) %dir %{_docdir}/HTML/nn
+%lang(pl) %dir %{_docdir}/HTML/pl
+%lang(pt) %dir %{_docdir}/HTML/pt
+%lang(ro) %dir %{_docdir}/HTML/ro
+%lang(ru) %dir %{_docdir}/HTML/ru
+%lang(sl) %dir %{_docdir}/HTML/sl
+%lang(sr) %dir %{_docdir}/HTML/sr
+%lang(sv) %dir %{_docdir}/HTML/sv
+%lang(tr) %dir %{_docdir}/HTML/tr
+%lang(uk) %dir %{_docdir}/HTML/uk
+%lang(wa) %dir %{_docdir}/HTML/wa
+%lang(xh) %dir %{_docdir}/HTML/xh
