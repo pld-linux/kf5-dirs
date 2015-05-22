@@ -22,7 +22,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters} \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,private/kquickcontrols,runnermodel} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
 	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,ro,ru,sl,sr,sv,tr,uk,wa,xh} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/xdg/ui
@@ -72,6 +72,7 @@ check_filesystem_dirs
 %dir %{_libdir}/qt5/qml/org/kde/kcoreaddons
 %dir %{_libdir}/qt5/qml/org/kde/kquickcontrols
 %dir %{_libdir}/qt5/qml/org/kde/kquickcontrolsaddons
+%dir %{_libdir}/qt5/qml/org/kde/kwindowsystem
 %dir %{_libdir}/qt5/qml/org/kde/private
 %dir %{_libdir}/qt5/qml/org/kde/private/kquickcontrols
 %dir %{_libdir}/qt5/qml/org/kde/runnermodel
