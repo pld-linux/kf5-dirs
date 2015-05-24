@@ -2,7 +2,7 @@
 %define		_enable_debug_packages	0
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
-Version:	0.1
+Version:	0.2
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -19,9 +19,12 @@ rm -rf $RPM_BUILD_ROOT
 install -d \
 	$RPM_BUILD_ROOT%{_includedir}/KF5 \
 	$RPM_BUILD_ROOT%{_datadir}/{kf5/kcookiejar,kservicetypes5,knotifications5,kservices5/{kded,searchproviders},kxmlgui5} \
+	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
+	$RPM_BUILD_ROOT%{_datadir}/plasma/look-and-feel \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,styles} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
@@ -61,7 +64,13 @@ check_filesystem_dirs
 %dir %{_datadir}/kservices5/searchproviders
 %dir %{_datadir}/knotifications5
 %dir %{_datadir}/kxmlgui5
+%dir %{_datadir}/kstyle
+%dir %{_datadir}/kstyle/themes
+%dir %{_datadir}/plasma
+%dir %{_datadir}/plasma/look-and-feel
 %dir %{_libdir}/kf5
+%dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
+%dir %{_libdir}/qt5/plugins/styles
 %dir %{_libdir}/qt5/plugins/kf5
 %dir %{_libdir}/qt5/plugins/kf5/kded
 %dir %{_libdir}/qt5/plugins/kf5/parts
