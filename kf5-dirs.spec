@@ -38,7 +38,7 @@ check_filesystem_dirs() {
 	RPMFILE=%{name}-%{version}-%{release}.%{_target_cpu}.rpm
 	TMPFILE=$(mktemp)
 	# NOTE:	we must exclude from check all existing dirs belonging to FHS
-	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt5|usr/lib64/qt5|usr/lib/qt5/imports|usr/lib64/qt5/imports|usr/lib/qt5/imports/org|usr/lib64/qt5/imports/org|usr/lib/qt5/plugins|usr/lib64/qt5/plugins|usr/lib/qt5/qml|usr/lib64/qt5/qml|usr/lib/qt5/qml/QtQuick|usr/lib64/qt5/qml/QtQuick|etc|etc/xdg)$' > $TMPFILE
+	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/libx32|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt5|usr/lib64/qt5|usr/libx32/qt5|usr/lib/qt5/imports|usr/lib64/qt5/imports|usr/libx32/qt5/imports|usr/lib/qt5/imports/org|usr/lib64/qt5/imports/org|usr/libx32/qt5/imports/org|usr/lib/qt5/plugins|usr/lib64/qt5/plugins|usr/libx32/qt5/plugins|usr/lib/qt5/qml|usr/lib64/qt5/qml|usr/libx32/qt5/qml|usr/lib/qt5/qml/QtQuick|usr/lib64/qt5/qml/QtQuick|usr/libx32/qt5/qml/QtQuick|etc|etc/xdg)$' > $TMPFILE
 
 	# find finds also '.', so use option -B for diff
 	if rpm -qpl %{_rpmdir}/$RPMFILE | grep -v '^/$' | LC_ALL=C sort | diff -uB $TMPFILE -; then
