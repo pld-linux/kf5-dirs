@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	4
+Release:	5
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -21,12 +21,14 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics} \
 	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{kded,searchproviders},kxmlgui5} \
 	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
-	$RPM_BUILD_ROOT%{_datadir}/plasma/look-and-feel \
+	$RPM_BUILD_ROOT%{_datadir}/plasma/{look-and-feel,plasmoids} \
+	$RPM_BUILD_ROOT%{_datadir}/remoteview \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters,org.kde.kwindowsystem.platforms} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,styles} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
 	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,ro,ru,sl,sr,sv,tr,uk,wa,xh} \
@@ -71,6 +73,8 @@ check_filesystem_dirs
 %dir %{_datadir}/kstyle/themes
 %dir %{_datadir}/plasma
 %dir %{_datadir}/plasma/look-and-feel
+%dir %{_datadir}/plasma/plasmoids
+%dir %{_datadir}/remoteview
 %dir %{_libdir}/kf5
 %dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
 %dir %{_libdir}/qt5/plugins/styles
@@ -89,6 +93,8 @@ check_filesystem_dirs
 %dir %{_libdir}/qt5/qml/org/kde/kquickcontrols
 %dir %{_libdir}/qt5/qml/org/kde/kquickcontrolsaddons
 %dir %{_libdir}/qt5/qml/org/kde/kwindowsystem
+%dir %{_libdir}/qt5/qml/org/kde/plasma
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private
 %dir %{_libdir}/qt5/qml/org/kde/private
 %dir %{_libdir}/qt5/qml/org/kde/private/kquickcontrols
 %dir %{_libdir}/qt5/qml/org/kde/runnermodel
