@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	2
+Release:	3
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -23,8 +23,8 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/plasma/look-and-feel \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters} \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.{kdecoration2,kwindowsystem.platforms},styles} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters,org.kde.kwindowsystem.platforms} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,styles} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
@@ -70,10 +70,10 @@ check_filesystem_dirs
 %dir %{_datadir}/plasma/look-and-feel
 %dir %{_libdir}/kf5
 %dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
-%dir %{_libdir}/qt5/plugins/org.kde.kwindowsystem.platforms
 %dir %{_libdir}/qt5/plugins/styles
 %dir %{_libdir}/qt5/plugins/kf5
 %dir %{_libdir}/qt5/plugins/kf5/kded
+%dir %{_libdir}/qt5/plugins/kf5/org.kde.kwindowsystem.platforms
 %dir %{_libdir}/qt5/plugins/kf5/parts
 %dir %{_libdir}/qt5/plugins/kf5/urifilters
 %dir %{_libdir}/qt5/qml/QtQuick/Controls
