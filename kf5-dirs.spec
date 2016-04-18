@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	9
+Release:	10
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
