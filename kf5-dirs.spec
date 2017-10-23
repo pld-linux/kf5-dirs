@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	11
+Release:	12
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -28,7 +28,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters,org.kde.kwindowsystem.platforms} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,script,styles} \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kconfig,kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
@@ -95,6 +95,7 @@ check_filesystem_dirs
 %dir %{_libdir}/qt5/qml/org/kde
 %dir %{_libdir}/qt5/qml/org/kde/kio
 %dir %{_libdir}/qt5/qml/org/kde/draganddrop
+%dir %{_libdir}/qt5/qml/org/kde/kconfig
 %dir %{_libdir}/qt5/qml/org/kde/kcoreaddons
 %dir %{_libdir}/qt5/qml/org/kde/kquickcontrols
 %dir %{_libdir}/qt5/qml/org/kde/kquickcontrolsaddons
