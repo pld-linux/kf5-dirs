@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	13
+Release:	14
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -20,8 +20,9 @@ install -d \
 	$RPM_BUILD_ROOT%{_includedir}/KF5 \
 	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics,locale} \
 	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,searchproviders},kxmlgui5} \
+	$RPM_BUILD_ROOT%{_datadir}/kpackage \
 	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
-	$RPM_BUILD_ROOT%{_datadir}/plasma/{look-and-feel,plasmoids} \
+	$RPM_BUILD_ROOT%{_datadir}/plasma/{look-and-feel,packages,plasmoids,shells} \
 	$RPM_BUILD_ROOT%{_datadir}/remoteview \
 	$RPM_BUILD_ROOT%{_datadir}/solid/actions \
 	$RPM_BUILD_ROOT%{_datadir}/solid/devices \
@@ -73,11 +74,14 @@ check_filesystem_dirs
 %dir %{_datadir}/kservices5/searchproviders
 %dir %{_datadir}/knotifications5
 %dir %{_datadir}/kxmlgui5
+%dir %{_datadir}/kpackage
 %dir %{_datadir}/kstyle
 %dir %{_datadir}/kstyle/themes
 %dir %{_datadir}/plasma
 %dir %{_datadir}/plasma/look-and-feel
+%dir %{_datadir}/plasma/packages
 %dir %{_datadir}/plasma/plasmoids
+%dir %{_datadir}/plasma/shells
 %dir %{_datadir}/remoteview
 %dir %{_datadir}/solid
 %dir %{_datadir}/solid/actions
