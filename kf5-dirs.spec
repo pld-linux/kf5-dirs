@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	14
+Release:	15
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -27,6 +27,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/solid/actions \
 	$RPM_BUILD_ROOT%{_datadir}/solid/devices \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
+	$RPM_BUILD_ROOT%{_libexecdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters,org.kde.kwindowsystem.platforms} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,script,styles} \
@@ -44,7 +45,7 @@ check_filesystem_dirs() {
 	RPMFILE=%{name}-%{version}-%{release}.%{_target_cpu}.rpm
 	TMPFILE=$(mktemp)
 	# NOTE:	we must exclude from check all existing dirs belonging to FHS
-	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/libx32|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt5|usr/lib64/qt5|usr/libx32/qt5|usr/lib/qt5/imports|usr/lib64/qt5/imports|usr/libx32/qt5/imports|usr/lib/qt5/imports/org|usr/lib64/qt5/imports/org|usr/libx32/qt5/imports/org|usr/lib/qt5/plugins|usr/lib64/qt5/plugins|usr/libx32/qt5/plugins|usr/lib/qt5/qml|usr/lib64/qt5/qml|usr/libx32/qt5/qml|usr/lib/qt5/qml/QtQuick|usr/lib64/qt5/qml/QtQuick|usr/libx32/qt5/qml/QtQuick|etc|etc/xdg)$' > $TMPFILE
+	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/libx32|usr/libexec|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt5|usr/lib64/qt5|usr/libx32/qt5|usr/lib/qt5/imports|usr/lib64/qt5/imports|usr/libx32/qt5/imports|usr/lib/qt5/imports/org|usr/lib64/qt5/imports/org|usr/libx32/qt5/imports/org|usr/lib/qt5/plugins|usr/lib64/qt5/plugins|usr/libx32/qt5/plugins|usr/lib/qt5/qml|usr/lib64/qt5/qml|usr/libx32/qt5/qml|usr/lib/qt5/qml/QtQuick|usr/lib64/qt5/qml/QtQuick|usr/libx32/qt5/qml/QtQuick|etc|etc/xdg)$' > $TMPFILE
 
 	# find finds also '.', so use option -B for diff
 	if rpm -qpl %{_rpmdir}/$RPMFILE | grep -v '^/$' | LC_ALL=C sort | diff -uB $TMPFILE -; then
@@ -87,6 +88,7 @@ check_filesystem_dirs
 %dir %{_datadir}/solid
 %dir %{_datadir}/solid/actions
 %dir %{_datadir}/solid/devices
+%dir %{_libexecdir}/kf5
 %dir %{_libdir}/kf5
 %dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
 %dir %{_libdir}/qt5/plugins/script
