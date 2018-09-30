@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	15
+Release:	16
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -35,7 +35,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
-	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,ro,ru,sl,sr,sv,tr,uk,wa,xh} \
+	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,pt_BR,ro,ru,sl,sr,sv,tr,uk,wa,xh} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/xdg/ui
 
 
@@ -144,6 +144,7 @@ check_filesystem_dirs
 %lang(nn) %dir %{_docdir}/HTML/nn
 %lang(pl) %dir %{_docdir}/HTML/pl
 %lang(pt) %dir %{_docdir}/HTML/pt
+%lang(pt_BR) %dir %{_docdir}/HTML/pt_BR
 %lang(ro) %dir %{_docdir}/HTML/ro
 %lang(ru) %dir %{_docdir}/HTML/ru
 %lang(sl) %dir %{_docdir}/HTML/sl
