@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	0.2
-Release:	16
+Release:	17
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -21,6 +21,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics,locale} \
 	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,searchproviders},kxmlgui5} \
 	$RPM_BUILD_ROOT%{_datadir}/kpackage/genericqml \
+	$RPM_BUILD_ROOT%{_datadir}/ksmserver \
 	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
 	$RPM_BUILD_ROOT%{_datadir}/plasma/{look-and-feel,packages,plasmoids,shells} \
 	$RPM_BUILD_ROOT%{_datadir}/remoteview \
@@ -77,6 +78,7 @@ check_filesystem_dirs
 %dir %{_datadir}/kxmlgui5
 %dir %{_datadir}/kpackage
 %dir %{_datadir}/kpackage/genericqml
+%dir %{_datadir}/ksmserver
 %dir %{_datadir}/kstyle
 %dir %{_datadir}/kstyle/themes
 %dir %{_datadir}/plasma
