@@ -31,7 +31,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_libexecdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters,org.kde.kwindowsystem.platforms} \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,script,styles} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,script} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kconfig,kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
@@ -94,7 +94,6 @@ check_filesystem_dirs
 %dir %{_libdir}/kf5
 %dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
 %dir %{_libdir}/qt5/plugins/script
-%dir %{_libdir}/qt5/plugins/styles
 %dir %{_libdir}/qt5/plugins/kf5
 %dir %{_libdir}/qt5/plugins/kf5/kded
 %dir %{_libdir}/qt5/plugins/kf5/org.kde.kwindowsystem.platforms
