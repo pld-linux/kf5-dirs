@@ -3,7 +3,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	5.82.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -30,7 +30,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
 	$RPM_BUILD_ROOT%{_libexecdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,urifilters,org.kde.kwindowsystem.platforms} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,propertiesdialog,urifilters,org.kde.kwindowsystem.platforms} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,script} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kconfig,kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
@@ -98,6 +98,7 @@ check_filesystem_dirs
 %dir %{_libdir}/qt5/plugins/kf5/kded
 %dir %{_libdir}/qt5/plugins/kf5/org.kde.kwindowsystem.platforms
 %dir %{_libdir}/qt5/plugins/kf5/parts
+%dir %{_libdir}/qt5/plugins/kf5/propertiesdialog
 %dir %{_libdir}/qt5/plugins/kf5/urifilters
 %dir %{_libdir}/qt5/qml/QtQuick/Controls
 %dir %{_libdir}/qt5/qml/QtQuick/Controls/Styles
