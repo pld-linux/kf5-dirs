@@ -1,3 +1,6 @@
+#
+# Conditional build:
+%bcond_with	tests		# build with tests
 %define		__spec_clean_body	%{nil}
 %define		_enable_debug_packages	0
 Summary:	KDE Frameworks - common directories
