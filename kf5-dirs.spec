@@ -5,8 +5,8 @@
 %define		_enable_debug_packages	0
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
-Version:	5.93.0
-Release:	2
+Version:	5.94.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
