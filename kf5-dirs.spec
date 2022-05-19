@@ -6,7 +6,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	5.94.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -40,7 +40,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
-	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,pt_BR,ro,ru,sl,sr,sv,tr,uk,wa,xh} \
+	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,pt_BR,ro,ru,sl,sr,sr@latin,sv,tr,uk,wa,xh} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/xdg/ui
 
 
@@ -157,6 +157,7 @@ check_filesystem_dirs
 %lang(ru) %dir %{_docdir}/HTML/ru
 %lang(sl) %dir %{_docdir}/HTML/sl
 %lang(sr) %dir %{_docdir}/HTML/sr
+%lang(sr@latin) %dir %{_docdir}/HTML/sr@latin
 %lang(sv) %dir %{_docdir}/HTML/sv
 %lang(tr) %dir %{_docdir}/HTML/tr
 %lang(uk) %dir %{_docdir}/HTML/uk
