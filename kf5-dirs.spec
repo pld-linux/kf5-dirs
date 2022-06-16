@@ -6,7 +6,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	5.95.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -24,7 +24,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics,locale} \
 	$RPM_BUILD_ROOT%{_datadir}/kio/servicemenus \
 	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,searchproviders},kxmlgui5} \
-	$RPM_BUILD_ROOT%{_datadir}/kpackage/genericqml \
+	$RPM_BUILD_ROOT%{_datadir}/kpackage/{kcms,genericqml} \
 	$RPM_BUILD_ROOT%{_datadir}/ksmserver \
 	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
 	$RPM_BUILD_ROOT%{_datadir}/plasma/{look-and-feel,packages,plasmoids,shells} \
@@ -35,7 +35,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_libexecdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/kf5 \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,propertiesdialog,urifilters,org.kde.kwindowsystem.platforms} \
-	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{org.kde.kdecoration2,script} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{kcms,org.kde.kdecoration2,script} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kconfig,kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
 	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
@@ -84,6 +84,7 @@ check_filesystem_dirs
 %dir %{_datadir}/kxmlgui5
 %dir %{_datadir}/kpackage
 %dir %{_datadir}/kpackage/genericqml
+%dir %{_datadir}/kpackage/kcms
 %dir %{_datadir}/ksmserver
 %dir %{_datadir}/kstyle
 %dir %{_datadir}/kstyle/themes
@@ -100,6 +101,7 @@ check_filesystem_dirs
 %dir %{_libdir}/kf5
 %dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
 %dir %{_libdir}/qt5/plugins/script
+%dir %{_libdir}/qt5/plugins/kcms
 %dir %{_libdir}/qt5/plugins/kf5
 %dir %{_libdir}/qt5/plugins/kf5/kded
 %dir %{_libdir}/qt5/plugins/kf5/org.kde.kwindowsystem.platforms
