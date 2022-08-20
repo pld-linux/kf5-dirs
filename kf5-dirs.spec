@@ -6,7 +6,7 @@
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
 Version:	5.97.0
-Release:	1
+Release:	2
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -23,7 +23,7 @@ install -d \
 	$RPM_BUILD_ROOT%{_includedir}/KF5 \
 	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics,locale} \
 	$RPM_BUILD_ROOT%{_datadir}/kio/servicemenus \
-	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,searchproviders},kxmlgui5} \
+	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,kontact,searchproviders},kxmlgui5} \
 	$RPM_BUILD_ROOT%{_datadir}/kpackage/{kcms,genericqml} \
 	$RPM_BUILD_ROOT%{_datadir}/ksmserver \
 	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
@@ -79,6 +79,7 @@ check_filesystem_dirs
 %dir %{_datadir}/kservices5
 %dir %{_datadir}/kservices5/ServiceMenus
 %dir %{_datadir}/kservices5/kded
+%dir %{_datadir}/kservices5/kontact
 %dir %{_datadir}/kservices5/searchproviders
 %dir %{_datadir}/knotifications5
 %dir %{_datadir}/kxmlgui5
