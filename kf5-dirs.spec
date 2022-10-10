@@ -5,7 +5,7 @@
 %define		_enable_debug_packages	0
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
-Version:	5.98.0
+Version:	5.99.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
@@ -21,6 +21,7 @@ KDE Frameworks - common directories.
 rm -rf $RPM_BUILD_ROOT
 install -d \
 	$RPM_BUILD_ROOT%{_includedir}/KF5 \
+	$RPM_BUILD_ROOT%{_datadir}/kdevappwizard/templates \
 	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics,locale} \
 	$RPM_BUILD_ROOT%{_datadir}/kio/servicemenus \
 	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,kontact,searchproviders},kxmlgui5} \
@@ -68,6 +69,8 @@ check_filesystem_dirs
 %dir %{_includedir}/KF5
 %dir %{_datadir}/emoticons
 %dir %{_datadir}/emoticons/Glass
+%dir %{_datadir}/kdevappwizard
+%dir %{_datadir}/kdevappwizard/templates
 %dir %{_datadir}/kf5
 %dir %{_datadir}/kf5/kcookiejar
 %dir %{_datadir}/kf5/locale
