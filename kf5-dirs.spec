@@ -5,8 +5,8 @@
 %define		_enable_debug_packages	0
 Summary:	KDE Frameworks - common directories
 Name:		kf5-dirs
-Version:	5.249.0
-Release:	0.1
+Version:	5.114.0
+Release:	1
 License:	LGPL
 Group:		X11/Libraries
 URL:		http://www.kde.org/
@@ -20,11 +20,11 @@ KDE Frameworks - common directories.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d \
-	$RPM_BUILD_ROOT%{_includedir}/KF6 \
+	$RPM_BUILD_ROOT%{_includedir}/KF5 \
 	$RPM_BUILD_ROOT%{_datadir}/kdevappwizard/templates \
-	$RPM_BUILD_ROOT%{_datadir}/kf6/{kcookiejar,widgets/pics,locale} \
+	$RPM_BUILD_ROOT%{_datadir}/kf5/{kcookiejar,widgets/pics,locale} \
 	$RPM_BUILD_ROOT%{_datadir}/kio/servicemenus \
-	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes6,knotifications6,kservices6/{ServiceMenus,kded,kontact,searchproviders},kxmlgui6} \
+	$RPM_BUILD_ROOT%{_datadir}/{kservicetypes5,knotifications5,kservices5/{ServiceMenus,kded,kontact,searchproviders},kxmlgui5} \
 	$RPM_BUILD_ROOT%{_datadir}/kpackage/{kcms,genericqml} \
 	$RPM_BUILD_ROOT%{_datadir}/ksmserver \
 	$RPM_BUILD_ROOT%{_datadir}/kstyle/themes \
@@ -33,14 +33,14 @@ install -d \
 	$RPM_BUILD_ROOT%{_datadir}/solid/actions \
 	$RPM_BUILD_ROOT%{_datadir}/solid/devices \
 	$RPM_BUILD_ROOT%{_datadir}/emoticons/Glass \
-	$RPM_BUILD_ROOT%{_libexecdir}/kf6 \
-	$RPM_BUILD_ROOT%{_libdir}/kf6 \
-	$RPM_BUILD_ROOT%{_libdir}/qt6/plugins/kf6/{kded,parts,propertiesdialog,urifilters,org.kde.kwindowsystem.platforms} \
-	$RPM_BUILD_ROOT%{_libdir}/qt6/plugins/{kcms,org.kde.kdecoration2,script} \
-	$RPM_BUILD_ROOT%{_libdir}/qt6/qml/org/kde/{kconfig,kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
-	$RPM_BUILD_ROOT%{_libdir}/qt6/qml/org/kde/plasma/private \
-	$RPM_BUILD_ROOT%{_libdir}/qt6/qml/QtQuick/Controls/Styles \
-	$RPM_BUILD_ROOT%{_libdir}/qt6/platformqml/touch/org/kde/plasma \
+	$RPM_BUILD_ROOT%{_libexecdir}/kf5 \
+	$RPM_BUILD_ROOT%{_libdir}/kf5 \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/kf5/{kded,parts,propertiesdialog,urifilters,org.kde.kwindowsystem.platforms} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/plugins/{kcms,org.kde.kdecoration2,script} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/{kconfig,kio,draganddrop,kcoreaddons,kquickcontrols,kquickcontrolsaddons,kwindowsystem,private/kquickcontrols,runnermodel} \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/org/kde/plasma/private \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/qml/QtQuick/Controls/Styles \
+	$RPM_BUILD_ROOT%{_libdir}/qt5/platformqml/touch/org/kde/plasma \
 	$RPM_BUILD_ROOT%{_docdir}/HTML/{af,ca,cs,da,de,el,en,eo,es,et,fr,gl,he,hu,it,ja,ko,lt,nds,nl,nn,pl,pt,pt_BR,ro,ru,sl,sr,sr@latin,sv,tr,uk,wa,xh} \
 	$RPM_BUILD_ROOT%{_sysconfdir}/xdg/ui
 
@@ -51,7 +51,7 @@ check_filesystem_dirs() {
 	RPMFILE=%{name}-%{version}-%{release}.%{_target_cpu}.rpm
 	TMPFILE=$(mktemp)
 	# NOTE:	we must exclude from check all existing dirs belonging to FHS
-	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/libx32|usr/libexec|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt6|usr/lib64/qt6|usr/libx32/qt6|usr/lib/qt6/imports|usr/lib64/qt6/imports|usr/libx32/qt6/imports|usr/lib/qt6/imports/org|usr/lib64/qt6/imports/org|usr/libx32/qt6/imports/org|usr/lib/qt6/plugins|usr/lib64/qt6/plugins|usr/libx32/qt6/plugins|usr/lib/qt6/qml|usr/lib64/qt6/qml|usr/libx32/qt6/qml|usr/lib/qt6/qml/QtQuick|usr/lib64/qt6/qml/QtQuick|usr/libx32/qt6/qml/QtQuick|etc|etc/xdg)$' > $TMPFILE
+	find | sed -e 's|^\.||g' -e 's|^$||g' | LC_ALL=C sort | grep -v $TMPFILE | grep -E -v '^/(usr|usr/include|usr/lib|usr/lib64|usr/libx32|usr/libexec|usr/share|usr/share/doc|usr/share/applications|usr/share/icons|usr/lib/qt5|usr/lib64/qt5|usr/libx32/qt5|usr/lib/qt5/imports|usr/lib64/qt5/imports|usr/libx32/qt5/imports|usr/lib/qt5/imports/org|usr/lib64/qt5/imports/org|usr/libx32/qt5/imports/org|usr/lib/qt5/plugins|usr/lib64/qt5/plugins|usr/libx32/qt5/plugins|usr/lib/qt5/qml|usr/lib64/qt5/qml|usr/libx32/qt5/qml|usr/lib/qt5/qml/QtQuick|usr/lib64/qt5/qml/QtQuick|usr/libx32/qt5/qml/QtQuick|etc|etc/xdg)$' > $TMPFILE
 
 	# find finds also '.', so use option -B for diff
 	if rpm -qpl %{_rpmdir}/$RPMFILE | grep -v '^/$' | LC_ALL=C sort | diff -uB $TMPFILE -; then
@@ -66,26 +66,26 @@ check_filesystem_dirs
 
 %files
 %defattr(644,root,root,755)
-%dir %{_includedir}/KF6
+%dir %{_includedir}/KF5
 %dir %{_datadir}/emoticons
 %dir %{_datadir}/emoticons/Glass
 %dir %{_datadir}/kdevappwizard
 %dir %{_datadir}/kdevappwizard/templates
-%dir %{_datadir}/kf6
-%dir %{_datadir}/kf6/kcookiejar
-%dir %{_datadir}/kf6/locale
-%dir %{_datadir}/kf6/widgets
-%dir %{_datadir}/kf6/widgets/pics
+%dir %{_datadir}/kf5
+%dir %{_datadir}/kf5/kcookiejar
+%dir %{_datadir}/kf5/locale
+%dir %{_datadir}/kf5/widgets
+%dir %{_datadir}/kf5/widgets/pics
 %dir %{_datadir}/kio
 %dir %{_datadir}/kio/servicemenus
-%dir %{_datadir}/kservicetypes6
-%dir %{_datadir}/kservices6
-%dir %{_datadir}/kservices6/ServiceMenus
-%dir %{_datadir}/kservices6/kded
-%dir %{_datadir}/kservices6/kontact
-%dir %{_datadir}/kservices6/searchproviders
-%dir %{_datadir}/knotifications6
-%dir %{_datadir}/kxmlgui6
+%dir %{_datadir}/kservicetypes5
+%dir %{_datadir}/kservices5
+%dir %{_datadir}/kservices5/ServiceMenus
+%dir %{_datadir}/kservices5/kded
+%dir %{_datadir}/kservices5/kontact
+%dir %{_datadir}/kservices5/searchproviders
+%dir %{_datadir}/knotifications5
+%dir %{_datadir}/kxmlgui5
 %dir %{_datadir}/kpackage
 %dir %{_datadir}/kpackage/genericqml
 %dir %{_datadir}/kpackage/kcms
@@ -101,38 +101,38 @@ check_filesystem_dirs
 %dir %{_datadir}/solid
 %dir %{_datadir}/solid/actions
 %dir %{_datadir}/solid/devices
-%dir %{_libexecdir}/kf6
-%dir %{_libdir}/kf6
-%dir %{_libdir}/qt6/plugins/org.kde.kdecoration2
-%dir %{_libdir}/qt6/plugins/script
-%dir %{_libdir}/qt6/plugins/kcms
-%dir %{_libdir}/qt6/plugins/kf6
-%dir %{_libdir}/qt6/plugins/kf6/kded
-%dir %{_libdir}/qt6/plugins/kf6/org.kde.kwindowsystem.platforms
-%dir %{_libdir}/qt6/plugins/kf6/parts
-%dir %{_libdir}/qt6/plugins/kf6/propertiesdialog
-%dir %{_libdir}/qt6/plugins/kf6/urifilters
-%dir %{_libdir}/qt6/qml/QtQuick/Controls
-%dir %{_libdir}/qt6/qml/QtQuick/Controls/Styles
-%dir %{_libdir}/qt6/qml/org
-%dir %{_libdir}/qt6/qml/org/kde
-%dir %{_libdir}/qt6/qml/org/kde/kio
-%dir %{_libdir}/qt6/qml/org/kde/draganddrop
-%dir %{_libdir}/qt6/qml/org/kde/kconfig
-%dir %{_libdir}/qt6/qml/org/kde/kcoreaddons
-%dir %{_libdir}/qt6/qml/org/kde/kquickcontrols
-%dir %{_libdir}/qt6/qml/org/kde/kquickcontrolsaddons
-%dir %{_libdir}/qt6/qml/org/kde/kwindowsystem
-%dir %{_libdir}/qt6/qml/org/kde/plasma
-%dir %{_libdir}/qt6/qml/org/kde/plasma/private
-%dir %{_libdir}/qt6/qml/org/kde/private
-%dir %{_libdir}/qt6/qml/org/kde/private/kquickcontrols
-%dir %{_libdir}/qt6/qml/org/kde/runnermodel
-%dir %{_libdir}/qt6/platformqml
-%dir %{_libdir}/qt6/platformqml/touch
-%dir %{_libdir}/qt6/platformqml/touch/org
-%dir %{_libdir}/qt6/platformqml/touch/org/kde
-%dir %{_libdir}/qt6/platformqml/touch/org/kde/plasma
+%dir %{_libexecdir}/kf5
+%dir %{_libdir}/kf5
+%dir %{_libdir}/qt5/plugins/org.kde.kdecoration2
+%dir %{_libdir}/qt5/plugins/script
+%dir %{_libdir}/qt5/plugins/kcms
+%dir %{_libdir}/qt5/plugins/kf5
+%dir %{_libdir}/qt5/plugins/kf5/kded
+%dir %{_libdir}/qt5/plugins/kf5/org.kde.kwindowsystem.platforms
+%dir %{_libdir}/qt5/plugins/kf5/parts
+%dir %{_libdir}/qt5/plugins/kf5/propertiesdialog
+%dir %{_libdir}/qt5/plugins/kf5/urifilters
+%dir %{_libdir}/qt5/qml/QtQuick/Controls
+%dir %{_libdir}/qt5/qml/QtQuick/Controls/Styles
+%dir %{_libdir}/qt5/qml/org
+%dir %{_libdir}/qt5/qml/org/kde
+%dir %{_libdir}/qt5/qml/org/kde/kio
+%dir %{_libdir}/qt5/qml/org/kde/draganddrop
+%dir %{_libdir}/qt5/qml/org/kde/kconfig
+%dir %{_libdir}/qt5/qml/org/kde/kcoreaddons
+%dir %{_libdir}/qt5/qml/org/kde/kquickcontrols
+%dir %{_libdir}/qt5/qml/org/kde/kquickcontrolsaddons
+%dir %{_libdir}/qt5/qml/org/kde/kwindowsystem
+%dir %{_libdir}/qt5/qml/org/kde/plasma
+%dir %{_libdir}/qt5/qml/org/kde/plasma/private
+%dir %{_libdir}/qt5/qml/org/kde/private
+%dir %{_libdir}/qt5/qml/org/kde/private/kquickcontrols
+%dir %{_libdir}/qt5/qml/org/kde/runnermodel
+%dir %{_libdir}/qt5/platformqml
+%dir %{_libdir}/qt5/platformqml/touch
+%dir %{_libdir}/qt5/platformqml/touch/org
+%dir %{_libdir}/qt5/platformqml/touch/org/kde
+%dir %{_libdir}/qt5/platformqml/touch/org/kde/plasma
 %dir %{_sysconfdir}/xdg/ui
 %dir %{_docdir}/HTML/
 %lang(af) %dir %{_docdir}/HTML/af
